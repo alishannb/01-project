@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -11,14 +12,23 @@ export class HomePage {
 
   items = [];
   is_toast_shown: boolean;
+  name : string;
 
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, private storage: Storage) {
       for (let index = 0; index < 20; index++) {
         
-        this.items.push(this.items.length)
+        this.items.push(this.items.length);
+
+        // set a key/value 
+        storage.set('name', 'Ali Shan'); 
+
+        // Or to get a key/value pair
+        storage.get('name').then((val) => {
+          this.name = val;
+        });
         
       }
-  }
+  } 
 
   doInfinite(infiniteScroll) { 
 
