@@ -1,14 +1,67 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Share Page Example
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+    <ul class="list">
+      <li class="item" id="displayLabel">
+        <div class="item item-text-wrap">
+          <button class="button button-block button-royal item-icon-left" ng-click="whatsappShare()">
+              <i class="icon ion-social-whatsapp"></i>
+                WhatsApp
+          </button>
+        </div>
+      </li>
+    </ul>
+
+
+    <ion-list>
+        <ion-item *ngFor="let i of items">{{i}}</ion-item>
+    </ion-list>
+     
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+
+  <ion-card> 
+    <img src="../../assets/imgs/01.jpeg" class="card-image">
+
+    <ion-card-content>
+      <ion-card-title>
+        Nine Inch Nails Live
+      </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='star'></ion-icon>
+          Favorite
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='musical-notes'></ion-icon>
+          Listen
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
 </ion-content>
